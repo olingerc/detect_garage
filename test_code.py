@@ -12,7 +12,7 @@ def detect_garage(src, debug=False):
     h, w, _ = img.shape
     h0 = 360.0 / 170.0
     h1 = 360.0 / 210.0
-    w0 = 640.0 / 570.0
+    w0 = 640.0 / 595.0
     w1 = 640.0 / 640.0
     img = img[int(float(h) / h0):int(float(h) / h1), int(float(w) / w0):int(float(w) / w1)] # rows cols # zoom on area with triangle
 
