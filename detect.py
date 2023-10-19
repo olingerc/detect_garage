@@ -8,7 +8,7 @@ with open('CAM_PW', 'r') as f:
 
 def save_image(path):
     cam_url = "rtsp://admin:{}@192.168.178.90:554/h264Preview_01_main".format(CAM_PW)
-    command = """ffmpeg -rtsp_transport tcp -y -i {0} -vframes 1 {1}""".format(cam_url, path)
+    command = """ffmpeg -rtsp_transport tcp -y -i {0} -r 1/1 -vframes 1 {1}""".format(cam_url, path)
     subprocess.call(command, shell=True)
 
 def detect_garage(src):
@@ -88,7 +88,7 @@ def detect_garage(src):
         return "unk"
 
 # Actual code
-path = "/var/tmp/img.jpg"
+path = "img.png"
 
 save_image(path)
 state = detect_garage(path)
